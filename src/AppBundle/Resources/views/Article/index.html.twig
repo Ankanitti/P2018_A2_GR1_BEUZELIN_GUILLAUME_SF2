@@ -1,0 +1,30 @@
+{% extends '::layout.html.twig' %}
+
+{% block content -%}
+    <section class="row">
+        <h1 class="text-center" style="margin-bottom: 5%; color: #ffffff;">
+            "Article" list
+        </h1>
+
+        {% for article in article %}
+            <article class="col-lg-4" style="color: #000000; background-color: #ffffff; margin: 10px">
+                <header>
+                    <figure>
+                        <img class="img-responsive" src="{{ article.image }}" alt="picture">
+                        <figcaption>
+                            <h1>{{ article.title }}</h1>
+                        </figcaption>
+                    </figure>
+                </header>
+                <p>{{ article.content }}</p>
+                <footer>
+                    <p>Released on {{ article.createdAt|date }}</p>
+                    <p>By : {{ article.user }}</p>
+                    <p>In category : <span style="color: blue">{{ article.category }}</span></p>
+                </footer>
+            </article>
+        {% endfor %}
+    </section>
+
+
+{% endblock %}
